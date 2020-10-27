@@ -12,8 +12,8 @@
 
 Подсказка:
 Вариант исполнения:
-- условие рекурсивного вызова - введена операция +, -, *, /
-- условие завершения рекурсии - введена операция 0
+- условие рекурсивного вызова - введена операция +, -, *, / - ШАГ РЕКУРСИИ
+- условие завершения рекурсии - введена операция 0 - БАЗОВЫЙ СЛУЧАЙ
 
 Решите через рекурсию. Решение через цикл не принимается.
 Для оценки Отлично в этом блоке необходимо выполнить 5 заданий из 7
@@ -28,3 +28,35 @@
 Вы вместо трехзначного числа ввели строку (((. Исправьтесь
 Введите операцию (+, -, *, / или 0 для выхода):
 """
+
+
+def calc(first_number=1, second_number=1, operation=0):
+    try:
+        if first_number == 1 and second_number == 1 and operation == 0:
+            print('')
+        if operation == '+':
+            print(f'{first_number}{operation}{second_number} = {first_number + second_number}')
+        elif operation == '-':
+            print(f'{first_number}{operation}{second_number} = {first_number - second_number}')
+        elif operation == '*':
+            print(f'{first_number}{operation}{second_number} = {first_number * second_number}')
+        elif operation == '/':
+            print(f'{first_number}{operation}{second_number} = {first_number / second_number}')
+        else:
+            print('Вы ввели не операцию, небходимо ввести +, -, *, / или 0 для выхода')
+        operation = input('Введите операцию (+, -, *, / или 0 для выхода):')
+        if operation == '0':
+            return print('Программа завершена')
+        else:
+            first_number = int(input('Введите первое число:'))
+            second_number = int(input('Введите второе число:'))
+            calc(first_number, second_number, operation)
+    except ZeroDivisionError:
+        print('Делить на ноль нельзя!')
+        calc(1, 1, 0)
+    except ValueError:
+        print('Вы ввели не число, исправтесь!')
+        calc(1, 1, 0)
+
+
+calc(1, 1, 0)

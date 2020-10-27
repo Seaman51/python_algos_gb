@@ -8,6 +8,7 @@
 и смотреть является ли она четной или нечетной. При этом увеличиваем соответствующий счетчик
 Пока все числа не извлечены рекурсивные вызовы продолжаем
 Условие завершения рекурсии - все числа извлечены
+Используем операции % //
 
 Решите через рекурсию. Решение через цикл не принимается.
 Для оценки Отлично в этом блоке необходимо выполнить 5 заданий из 7
@@ -16,3 +17,21 @@
 Введите число: 123
 Количество четных и нечетных цифр в числе равно: (1, 2)
 """
+def even_odd_counter(number, even_count=0, odd_count = 0):
+    num_str = str(number)
+    if len(num_str) == 1:
+        if number%2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+        return odd_count, even_count
+    else:
+        if number%2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+        return even_odd_counter((number//10), even_count, odd_count)
+
+number = int(input('Введите число:'))
+ev, od = even_odd_counter(number)
+print(f'В данном числе нечетных цифр - {ev} и четных цифр - {od} ')
