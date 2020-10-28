@@ -15,6 +15,7 @@
 Элемент в 2 раза меньше предыд и имеет противопол знак
 """
 
+
 def sum_row(count, number=1.0):
     if count == 1:
         return number
@@ -23,12 +24,4 @@ def sum_row(count, number=1.0):
         return (number + sum_row(count, (number * (-0.5))))
 
 
-count = int(input('Введите число элементов последовательности: '))
-num = 1
-row = [1]
-for i in range(count - 1):
-    print(num)
-    num = num * (-0.5)
-    row.append(num)
-print(f'Полученный ряд чисел: {row}')
-print(f'Сумма элементов равно {sum_row(count)}')
+print(f'Сумма элементов равно {sum_row(int(input("Введите число элементов последовательности: ")))}')
