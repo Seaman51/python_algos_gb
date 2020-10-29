@@ -14,7 +14,6 @@ def sum_n(n):
         return n
     return n+sum_n(n-1)
 
-
 n = int(input('Введите число: '))
 print(f'Сумма чисел от 1 до n равна {sum_n(n)}')
 print(f'n(n+1)/2 = {n*(n+1)/2}')
