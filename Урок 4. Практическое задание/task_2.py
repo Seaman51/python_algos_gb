@@ -13,7 +13,8 @@
 
 from timeit import timeit
 from random import randint
-
+from timeit import timeit
+from random import randint
 
 def recursive_reverse(number):
     if number == 0:
@@ -79,3 +80,20 @@ print(
         'recursive_reverse_mem(num_10000)',
         setup='from __main__ import recursive_reverse_mem, num_10000',
         number=10000))
+"""
+C:\Python3\python.exe "D:/Test/python_algos_gb/Урок 4. Практическое задание/task_2.py"
+
+Не оптимизированная функция recursive_reverse
+0.0415604
+0.05128029999999999
+0.062077699999999986
+
+Оптимизированная функция recursive_reverse_mem
+0.002885899999999997
+0.0016952000000000078
+0.0017188999999999954
+
+Меморизация ускоряет в разы!
+
+Process finished with exit code 0
+"""
